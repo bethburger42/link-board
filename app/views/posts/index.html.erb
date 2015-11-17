@@ -1,2 +1,10 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>Posts</h1>
+<div class="row">
+<%= link_to '', new_post_path, class: 'btn btn-primary glyphicon glyphicon-plus pull-right' %>
+</div>
+<% @posts.each do |p| %>
+<div class="well">
+  <h2><%= link_to p.title, p.link %></h2>
+  <p>By <%= p.user.name %></p>
+</div>
+<% end %>

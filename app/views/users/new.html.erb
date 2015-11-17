@@ -1,9 +1,10 @@
-<h1>Login</h1>
+<h1>Signup</h1>
 
 <%= bootstrap_form_for :user do |u| %>
   <%= u.text_field :name, placeholder: "Enter your name" %>
-  <%= u.text_field :email, placeholder: "Enter your email" %>
+  <%= u.email_field :email, placeholder: "Enter your email" %>
   <%= u.password_field :password, placeholder: "Enter your password" %>
   <%= u.password_field :password_confirmation, placeholder: "Re-enter your password" %>
-  <%= u.submit "Login"%>
+
+  <%= u.primary 'Signup' %>
 <% end %>

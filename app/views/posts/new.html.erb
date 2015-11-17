@@ -1,2 +1,9 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Create a Post</h1>
+
+<%= bootstrap_form_for @post, url: posts_path do |p| %>
+<%= p.text_field :title %>
+<%= p.url_field :link %>
+
+<%= p.primary %>
+
+<% end %>

@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.authenticate login_params['email'], login_params['password'], login_params['name']
+    @user = User.authenticate user_params[:email], user_params[:password]
 
     if @user
       session[:user_id] = @user.id
@@ -17,12 +17,13 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    flash[:success] = 'You are now logged out'
     redirect_to root_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :name)
+    params.require(:user).permit(:email, :password)
   end
 end
