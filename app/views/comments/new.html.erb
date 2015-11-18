@@ -1,0 +1,8 @@
+<h1>Add a Comment</h1>
+
+<h2><%= link_to @post.title, @post.link %></h2>
+
+<%= bootstrap_form_for [@post, @comment] do |c| %>
+  <%= c.text_area :body %>
+  <%= c.primary %>
+<% end %>

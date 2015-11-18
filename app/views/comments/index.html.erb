@@ -1,0 +1,12 @@
+<h1>Comments</h1>
+
+<h2><%= link_to @post.title, @post.link %></h2>
+
+<%= link_to 'New Comment', new_post_comment_path(@post), class: 'btn btn-primary' %>
+
+<% @post.comment.each do |c| %>
+<div class="well">
+  <p><%= c.body %></p>
+  <strong>By <%= c.user.name %></strong>
+</div>
+<% end %>

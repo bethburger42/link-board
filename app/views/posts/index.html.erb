@@ -6,5 +6,9 @@
 <div class="well">
   <h2><%= link_to p.title, p.link %></h2>
   <p>By <%= p.user.name %></p>
+  
+  <%= link_to 'View Comments', post_comments_path(p.id), class: 'btn btn-primary' %>
+  <%= link_to 'New Comment', new_post_comment_path(p.id), class: 'btn btn-primary' %>
+
 </div>
 <% end %>
