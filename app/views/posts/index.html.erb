@@ -1,14 +1,14 @@
-<h1>Posts</h1>
 <div class="row">
+<h1>Posts</h1>
 <%= link_to '', new_post_path, class: 'btn btn-primary glyphicon glyphicon-plus pull-right' %>
 </div>
 <% @posts.each do |p| %>
 <div class="well">
   <h2><%= link_to p.title, p.link %></h2>
   <p>By <%= p.user.name %></p>
-  
+
   <%= link_to 'View Comments', post_comments_path(p.id), class: 'btn btn-primary' %>
   <%= link_to 'New Comment', new_post_comment_path(p.id), class: 'btn btn-primary' %>
-
-</div>
+  <%= link_to "Delete", {:controller => "posts", :action => "destroy", :id => p.id}, class: 'btn btn-danger delete_btn' %> 
+  </div>
 <% end %>

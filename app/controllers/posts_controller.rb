@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :is_authenticated?, except: [:index]
+  before_action :is_authenticated?, except: [:index
+  ]
   def index
   	@posts = Post.all
   end
@@ -26,6 +27,12 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find params[:id]
+  end
+
+  def destroy
+    id = params[:id]
+    post = Post.find_by_id(id)
+    post.destroy
   end
 
   private
